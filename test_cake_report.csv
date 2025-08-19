@@ -1,0 +1,16 @@
+Metric,Value,Unit
+TCP Total Bitrate,100.00,Mbits/sec
+TCP Efficiency,100.00,%
+TCP Total Retransmissions,204,packets
+TCP Jain's Fairness Index,0.626,-
+UDP Total Bitrate,31.30,Mbits/sec
+UDP Efficiency,31.30,%
+UDP Average Jitter,0.42,ms
+UDP Lost Datagrams,107,packets
+UDP Total Datagrams,293304,packets
+UDP Packet Loss Rate,0.04,%
+UDP Jain's Fairness Index,0.999,-
+Ping Min Latency,0.80,ms
+Ping Avg Latency,2.87,ms
+Ping Max Latency,37.30,ms
+Ping Std Dev Latency,2.18,ms

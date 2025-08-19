@@ -1,0 +1,27 @@
+19:41:43
+qdisc fq_codel 0: root refcnt 2 limit 10240p flows 1024 quantum 1514 target 5.0ms interval 100.0ms memory_limit 32Mb ecn 
+ Sent 1005497312 bytes 1277712 pkt (dropped 0, overlimits 0 requeues 183) 
+ backlog 0b 0p requeues 183
+  maxpacket 1514 drop_overlimit 0 new_flow_count 441 ecn_mark 0
+  new_flows_len 0 old_flows_len 0
+19:42:22
+qdisc fq_codel 0: root refcnt 2 limit 10240p flows 1024 quantum 1514 target 5.0ms interval 100.0ms memory_limit 32Mb ecn 
+ Sent 1005889894 bytes 1278190 pkt (dropped 0, overlimits 0 requeues 183) 
+ backlog 0b 0p requeues 183
+  maxpacket 1514 drop_overlimit 0 new_flow_count 444 ecn_mark 0
+  new_flows_len 0 old_flows_len 0
+19:43:52
+qdisc red 8001: root refcnt 2 limit 600000b min 150000b max 300000b ecn 
+ Sent 1850 bytes 10 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+  marked 0 early 0 pdrop 0 other 0 
+19:44:40
+qdisc red 8001: root refcnt 2 limit 600000b min 150000b max 300000b ecn 
+ Sent 491991 bytes 610 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+  marked 0 early 0 pdrop 0 other 0 
+19:53:21
+qdisc red 8001: root refcnt 2 limit 600000b min 150000b max 300000b ecn 
+ Sent 442198947 bytes 562465 pkt (dropped 0, overlimits 0 requeues 73) 
+ backlog 0b 0p requeues 73
+  marked 0 early 0 pdrop 0 other 0 

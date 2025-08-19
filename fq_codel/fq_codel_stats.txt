@@ -1,0 +1,53 @@
+qdisc fq_codel 8002: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms ce_threshold 999us interval 30.0ms memory_limit 32Mb ecn 
+ Sent 843923232 bytes 811178 pkt (dropped 0, overlimits 0 requeues 625) 
+ backlog 0b 0p requeues 625
+  maxpacket 1042 drop_overlimit 0 new_flow_count 270 ecn_mark 0 ce_mark 847
+  new_flows_len 0 old_flows_len 0
+16:30:55
+qdisc fq_codel 8005: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms ce_threshold 999us interval 30.0ms memory_limit 32Mb ecn 
+ Sent 88098 bytes 106 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+  maxpacket 74 drop_overlimit 0 new_flow_count 1 ecn_mark 0
+  new_flows_len 0 old_flows_len 0
+16:31:36
+qdisc fq_codel 8005: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms ce_threshold 999us interval 30.0ms memory_limit 32Mb ecn 
+ Sent 19649180 bytes 19045 pkt (dropped 0, overlimits 0 requeues 463) 
+ backlog 0b 0p requeues 463
+  maxpacket 1042 drop_overlimit 0 new_flow_count 247 ecn_mark 0 ce_mark 1857
+  new_flows_len 0 old_flows_len 0
+16:33:42
+qdisc fq_codel 8005: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms ce_threshold 999us interval 30.0ms memory_limit 32Mb ecn 
+ Sent 19774529 bytes 20264 pkt (dropped 0, overlimits 0 requeues 463) 
+ backlog 0b 0p requeues 463
+  maxpacket 1042 drop_overlimit 0 new_flow_count 248 ecn_mark 0 ce_mark 1857
+  new_flows_len 0 old_flows_len 0
+16:36:13
+qdisc fq_codel 8005: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms ce_threshold 999us interval 30.0ms memory_limit 32Mb ecn 
+ Sent 19850850 bytes 20955 pkt (dropped 0, overlimits 0 requeues 463) 
+ backlog 0b 0p requeues 463
+  maxpacket 1042 drop_overlimit 0 new_flow_count 248 ecn_mark 0 ce_mark 1857
+  new_flows_len 0 old_flows_len 0
+16:37:35
+qdisc fq_codel 8005: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms ce_threshold 999us interval 30.0ms memory_limit 32Mb ecn 
+ Sent 19929750 bytes 21186 pkt (dropped 0, overlimits 0 requeues 463) 
+ backlog 0b 0p requeues 463
+  maxpacket 1042 drop_overlimit 0 new_flow_count 248 ecn_mark 0 ce_mark 1857
+  new_flows_len 0 old_flows_len 0
+19:47:14
+qdisc fq_codel 800b: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms interval 30.0ms memory_limit 32Mb ecn 
+ Sent 29398 bytes 44 pkt (dropped 0, overlimits 0 requeues 0) 
+ backlog 0b 0p requeues 0
+  maxpacket 103 drop_overlimit 0 new_flow_count 2 ecn_mark 0
+  new_flows_len 0 old_flows_len 0
+19:55:42
+qdisc fq_codel 800b: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms interval 30.0ms memory_limit 32Mb ecn 
+ Sent 624364659 bytes 600834 pkt (dropped 0, overlimits 0 requeues 1722) 
+ backlog 0b 0p requeues 1722
+  maxpacket 1042 drop_overlimit 0 new_flow_count 1527 ecn_mark 8 ce_mark 1061
+  new_flows_len 0 old_flows_len 0
+20:01:57
+qdisc fq_codel 800b: root refcnt 2 limit 2000p flows 2048 quantum 1514 target 4.0ms interval 30.0ms memory_limit 32Mb ecn 
+ Sent 4602221624 bytes 3322440 pkt (dropped 0, overlimits 0 requeues 1793) 
+ backlog 0b 0p requeues 1793
+  maxpacket 59046 drop_overlimit 0 new_flow_count 2273 ecn_mark 8 ce_mark 1171
+  new_flows_len 0 old_flows_len 0

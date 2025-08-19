@@ -1,0 +1,6 @@
+20:56:55
+qdisc codel 800c: root refcnt 2 limit 500p target 10.0ms interval 80.0ms ecn 
+ Sent 276639291 bytes 764814 pkt (dropped 10164, overlimits 0 requeues 1160) 
+ backlog 0b 0p requeues 1160
+  count 0 lastcount 0 ldelay 30us drop_next 0us
+  maxpacket 3028 ecn_mark 0 drop_overlimit 10164

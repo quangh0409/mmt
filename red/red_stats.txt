@@ -1,0 +1,5 @@
+19:35:25
+qdisc red 800a: root refcnt 2 limit 600000b min 150000b max 300000b ecn 
+ Sent 3576845532 bytes 2533263 pkt (dropped 0, overlimits 1 requeues 312) 
+ backlog 0b 0p requeues 312
+  marked 1 early 0 pdrop 0 other 0 

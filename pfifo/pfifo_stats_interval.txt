@@ -1,0 +1,4 @@
+18:18:52
+qdisc pfifo 8009: root refcnt 2 limit 500p
+ Sent 7901988559 bytes 5379952 pkt (dropped 0, overlimits 0 requeues 3666) 
+ backlog 0b 0p requeues 3666
