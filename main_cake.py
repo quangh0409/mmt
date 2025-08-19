@@ -382,11 +382,15 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
 
     # Plot 1: Bitrate
     ax = axs[0]
-    if time_data and any(stream_bitrates) and sum_bitrate:
+    if time_data and any(len(sb) > 0 for sb in stream_bitrates) and len(sum_bitrate) > 0:
+        plotted_labels = set()
         for i, stream_bitrate in enumerate(stream_bitrates):
-            if stream_bitrate:  # Check if stream has data
+            if len(stream_bitrate) > 0 and labels[i] not in plotted_labels:
                 ax.plot(time_data, stream_bitrate, label=labels[i])
-        ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
+                plotted_labels.add(labels[i])
+        if 'Tổng' not in plotted_labels:
+            ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
+            plotted_labels.add('Tổng')
         ax.set_title('Bitrate TCP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Bitrate (Mbits/sec)')
@@ -399,11 +403,15 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
 
     # Plot 2: Retransmissions
     ax = axs[1]
-    if time_data and any(stream_retrs) and sum_retr:
+    if time_data and any(len(sr) > 0 for sr in stream_retrs) and len(sum_retr) > 0:
+        plotted_labels = set()
         for i, stream_retr in enumerate(stream_retrs):
-            if stream_retr:  # Check if stream has data
+            if len(stream_retr) > 0 and labels[i] not in plotted_labels:
                 ax.plot(time_data, stream_retr, label=labels[i])
-        ax.plot(time_data, sum_retr, 'k--', label='Tổng', linewidth=2)
+                plotted_labels.add(labels[i])
+        if 'Tổng' not in plotted_labels:
+            ax.plot(time_data, sum_retr, 'k--', label='Tổng', linewidth=2)
+            plotted_labels.add('Tổng')
         ax.set_title('Gói truyền lại TCP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Số gói truyền lại')
@@ -416,10 +424,12 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
 
     # Plot 3: Congestion Window
     ax = axs[2]
-    if time_data and any(stream_cwnd):
+    if time_data and any(len(sc) > 0 for sc in stream_cwnd):
+        plotted_labels = set()
         for i, stream_c in enumerate(stream_cwnd):
-            if stream_c:  # Check if stream has data
+            if len(stream_c) > 0 and labels[i] not in plotted_labels:
                 ax.plot(time_data, stream_c, label=labels[i])
+                plotted_labels.add(labels[i])
         ax.set_title('Cửa sổ tắc nghẽn (Cwnd) TCP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Cwnd (KBytes)')
@@ -545,11 +555,15 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
 
     # Plot 1: Bitrate
     ax = axs[0]
-    if time_data and any(stream_bitrates) and sum_bitrate:
+    if time_data and any(len(sb) > 0 for sb in stream_bitrates) and len(sum_bitrate) > 0:
+        plotted_labels = set()
         for i, stream_bitrate in enumerate(stream_bitrates):
-            if stream_bitrate:  # Check if stream has data
+            if len(stream_bitrate) > 0 and labels[i] not in plotted_labels:
                 ax.plot(time_data, stream_bitrate, label=labels[i])
-        ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
+                plotted_labels.add(labels[i])
+        if 'Tổng' not in plotted_labels:
+            ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
+            plotted_labels.add('Tổng')
         ax.set_title('Bitrate UDP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Bitrate (Mbits/sec)')
@@ -562,11 +576,15 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
 
     # Plot 2: Jitter
     ax = axs[1]
-    if time_data and any(stream_jitt_raw) and sum_jitt:
+    if time_data and any(len(sj) > 0 for sj in stream_jitt_raw) and len(sum_jitt) > 0:
+        plotted_labels = set()
         for i, stream_jitt in enumerate(stream_jitt_raw):
-            if stream_jitt:  # Check if stream has data
+            if len(stream_jitt) > 0 and labels[i] not in plotted_labels:
                 ax.plot(time_data, stream_jitt, label=labels[i])
-        ax.plot(time_data, sum_jitt, 'k--', label='Tổng', linewidth=2)
+                plotted_labels.add(labels[i])
+        if 'Tổng' not in plotted_labels:
+            ax.plot(time_data, sum_jitt, 'k--', label='Tổng', linewidth=2)
+            plotted_labels.add('Tổng')
         ax.set_title('Jitter UDP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Jitter (ms)')
