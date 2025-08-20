@@ -333,7 +333,7 @@ def plot_codel_analysis_tcp(data, final_stats, ping_times, out_img):
     fig.suptitle('Phân tích hiệu năng CoDel TCP', fontsize=16, fontweight='bold')
     
     streams = ['stream6', 'stream8', 'stream10', 'stream12']
-    labels = [f'Luồng {s[-2:]}' for s in streams]
+    labels = [f'Luồng {s[6:]}' for s in streams]
 
     # Đảm bảo tất cả các stream có cùng độ dài
     min_length = min(
@@ -473,7 +473,7 @@ def plot_codel_analysis_udp(data, final_stats, ping_times, out_img):
     fig.suptitle('Phân tích hiệu năng CoDel UDP', fontsize=16, fontweight='bold')
     
     streams = ['stream6', 'stream8', 'stream10', 'stream12']
-    labels = [f'Luồng {s[-2:]}' for s in streams]
+    labels = [f'Luồng {s[6:]}' for s in streams]
     transfers = [final_stats[s]['transfer'] if s in final_stats and 'transfer' in final_stats[s] else 0 for s in streams]
     bitrates = [final_stats[s]['bitrate'] if s in final_stats and 'bitrate' in final_stats[s] else 0 for s in streams]
     jitters = [final_stats[s]['jitter'] if s in final_stats and 'jitter' in final_stats[s] else 0 for s in streams]

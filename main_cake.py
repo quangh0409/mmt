@@ -364,7 +364,7 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
     fig.suptitle('Phân tích hiệu năng CAKE TCP', fontsize=16, fontweight='bold')
 
     streams = ['stream6', 'stream8', 'stream10', 'stream12']
-    labels = [f'Luồng {s[-2:]}' for s in streams]
+    labels = [f'Luồng {s[6:]}' for s in streams]
 
     # Đảm bảo tất cả các stream có cùng độ dài
     min_length = min(
@@ -523,7 +523,7 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
         if time_data_transfer and any(cumulative_transfer.values()):
             for stream in streams:
                 if cumulative_transfer[stream]:
-                    ax.plot(time_data_transfer, cumulative_transfer[stream][:min_length_transfer], label=f'Luồng {stream[-2:]}')
+                    ax.plot(time_data_transfer, cumulative_transfer[stream][:min_length_transfer], label=f'Luồng {stream[6:]}')
             ax.set_title('Tổng Transfer TCP theo thời gian (tính từ Bitrate)')
             ax.set_xlabel('Thời gian (giây)')
             ax.set_ylabel('Transfer (MBytes)')
@@ -562,7 +562,7 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
     fig.suptitle('Phân tích hiệu năng CAKE UDP', fontsize=16, fontweight='bold')
 
     streams = ['stream6', 'stream8', 'stream10', 'stream12']
-    labels = [f'Luồng {s[-2:]}' for s in streams]
+    labels = [f'Luồng {s[6:]}' for s in streams]
 
     min_length = min(
         len(data.get('time', [])),
@@ -705,7 +705,7 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
         if time_data_transfer and any(cumulative_transfer.values()):
             for stream in streams:
                 if cumulative_transfer[stream]:
-                    ax.plot(time_data_transfer, cumulative_transfer[stream][:min_length_transfer], label=f'Luồng {stream[-2:]}')
+                    ax.plot(time_data_transfer, cumulative_transfer[stream][:min_length_transfer], label=f'Luồng {stream[6:]}')
             ax.set_title('Tổng Transfer UDP theo thời gian (tính từ Bitrate)')
             ax.set_xlabel('Thời gian (giây)')
             ax.set_ylabel('Transfer (MBytes)')
