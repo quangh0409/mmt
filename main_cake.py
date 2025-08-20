@@ -391,6 +391,15 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
         if 'Tổng' not in plotted_labels:
             ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
             plotted_labels.add('Tổng')
+        # Ensure only 4 streams + 1 total are present
+        allowed_labels = set(labels + ['Tổng'])
+        seen = set()
+        for line in list(ax.get_lines()):
+            lbl = line.get_label()
+            if lbl not in allowed_labels or lbl in seen:
+                line.remove()
+            else:
+                seen.add(lbl)
         ax.set_title('Bitrate TCP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Bitrate (Mbits/sec)')
@@ -412,6 +421,15 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
         if 'Tổng' not in plotted_labels:
             ax.plot(time_data, sum_retr, 'k--', label='Tổng', linewidth=2)
             plotted_labels.add('Tổng')
+        # Ensure only 4 streams + 1 total are present
+        allowed_labels = set(labels + ['Tổng'])
+        seen = set()
+        for line in list(ax.get_lines()):
+            lbl = line.get_label()
+            if lbl not in allowed_labels or lbl in seen:
+                line.remove()
+            else:
+                seen.add(lbl)
         ax.set_title('Gói truyền lại TCP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Số gói truyền lại')
@@ -430,6 +448,15 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
             if len(stream_c) > 0 and labels[i] not in plotted_labels:
                 ax.plot(time_data, stream_c, label=labels[i])
                 plotted_labels.add(labels[i])
+        # Ensure only 4 streams are present (no total for cwnd)
+        allowed_labels = set(labels)
+        seen = set()
+        for line in list(ax.get_lines()):
+            lbl = line.get_label()
+            if lbl not in allowed_labels or lbl in seen:
+                line.remove()
+            else:
+                seen.add(lbl)
         ax.set_title('Cửa sổ tắc nghẽn (Cwnd) TCP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Cwnd (KBytes)')
@@ -564,6 +591,15 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
         if 'Tổng' not in plotted_labels:
             ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
             plotted_labels.add('Tổng')
+        # Ensure only 4 streams + 1 total are present
+        allowed_labels = set(labels + ['Tổng'])
+        seen = set()
+        for line in list(ax.get_lines()):
+            lbl = line.get_label()
+            if lbl not in allowed_labels or lbl in seen:
+                line.remove()
+            else:
+                seen.add(lbl)
         ax.set_title('Bitrate UDP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Bitrate (Mbits/sec)')
@@ -585,6 +621,15 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
         if 'Tổng' not in plotted_labels:
             ax.plot(time_data, sum_jitt, 'k--', label='Tổng', linewidth=2)
             plotted_labels.add('Tổng')
+        # Ensure only 4 streams + 1 total are present
+        allowed_labels = set(labels + ['Tổng'])
+        seen = set()
+        for line in list(ax.get_lines()):
+            lbl = line.get_label()
+            if lbl not in allowed_labels or lbl in seen:
+                line.remove()
+            else:
+                seen.add(lbl)
         ax.set_title('Jitter UDP theo thời gian')
         ax.set_xlabel('Thời gian (giây)')
         ax.set_ylabel('Jitter (ms)')
