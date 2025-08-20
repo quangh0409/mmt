@@ -356,9 +356,12 @@ def plot_codel_analysis_tcp(data, final_stats, ping_times, out_img):
     # 1. Bitrate theo thời gian
     ax = axs[0]
     if time_data:
+        plotted_labels = set()
         for i, s_bitrate in enumerate(stream_bitrates):
-            ax.plot(time_data, s_bitrate, label=labels[i], linewidth=2)
-        if sum_bitrate:
+            if len(s_bitrate) > 0 and labels[i] not in plotted_labels:
+                ax.plot(time_data, s_bitrate, label=labels[i], linewidth=2)
+                plotted_labels.add(labels[i])
+        if len(sum_bitrate) > 0 and 'Tổng' not in plotted_labels:
             ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=3)
         ax.set_xlabel('Thời gian (s)')
         ax.set_ylabel('Bitrate (Mbps)')
@@ -369,9 +372,12 @@ def plot_codel_analysis_tcp(data, final_stats, ping_times, out_img):
     # 2. Retransmissions theo thời gian
     ax = axs[1]
     if time_data:
+        plotted_labels = set()
         for i, s_retr in enumerate(stream_retrs):
-            ax.plot(time_data, s_retr, label=labels[i], linewidth=2)
-        if sum_retr:
+            if len(s_retr) > 0 and labels[i] not in plotted_labels:
+                ax.plot(time_data, s_retr, label=labels[i], linewidth=2)
+                plotted_labels.add(labels[i])
+        if len(sum_retr) > 0 and 'Tổng' not in plotted_labels:
             ax.plot(time_data, sum_retr, 'k--', label='Tổng', linewidth=3)
         ax.set_xlabel('Thời gian (s)')
         ax.set_ylabel('Retransmissions')
@@ -406,8 +412,11 @@ def plot_codel_analysis_tcp(data, final_stats, ping_times, out_img):
     # 5. Congestion Window theo thời gian
     ax = axs[4]
     if time_data:
+        plotted_labels = set()
         for i, s_cwnd in enumerate(stream_cwnds):
-            ax.plot(time_data, s_cwnd, label=labels[i], linewidth=2)
+            if len(s_cwnd) > 0 and labels[i] not in plotted_labels:
+                ax.plot(time_data, s_cwnd, label=labels[i], linewidth=2)
+                plotted_labels.add(labels[i])
         ax.set_xlabel('Thời gian (s)')
         ax.set_ylabel('Congestion Window (KB)')
         ax.set_title('Congestion Window theo thời gian')
