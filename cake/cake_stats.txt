@@ -1,4 +1,3 @@
-21:42:18
 qdisc cake 800d: root refcnt 2 bandwidth 500Mbit diffserv4 dual-dsthost nat nowash ack-filter split-gso rtt 50.0ms noatm overhead 38 
  Sent 2525308479 bytes 2554469 pkt (dropped 33, overlimits 16928 requeues 25470) 
  backlog 0b 0p requeues 25470
@@ -25,38 +24,6 @@ qdisc cake 800d: root refcnt 2 bandwidth 500Mbit diffserv4 dual-dsthost nat nowa
   marks               0           26            0            0
   ack_drop            0            0            0            0
   sp_flows            0            4            0            1
-  bk_flows            0            1            0            0
-  un_flows            0            0            0            0
-  max_len             0        68130         1872          334
-  quantum           953         1514         1514         1514
-
-21:52:33
-qdisc cake 800d: root refcnt 2 bandwidth 500Mbit diffserv4 dual-dsthost nat nowash ack-filter split-gso rtt 50.0ms noatm overhead 38 
- Sent 3553755880 bytes 3364841 pkt (dropped 57, overlimits 29755 requeues 37772) 
- backlog 0b 0p requeues 37772
- memory used: 435456b of 100Mb
- capacity estimate: 500Mbit
- min/max network layer size:           28 /    1500
- min/max overhead-adjusted size:       66 /    1538
- average network hdr offset:           14
-
-                   Bulk  Best Effort        Video        Voice
-  thresh      31250Kbit      500Mbit      250Mbit      125Mbit
-  target          2.5ms        2.5ms        2.5ms        2.5ms
-  interval       50.0ms       50.0ms       50.0ms       50.0ms
-  pk_delay          0us         88us        340us        881us
-  av_delay          0us          8us         15us         20us
-  sp_delay          0us          5us          5us          6us
-  backlog            0b           0b           0b           0b
-  pkts                0      3363325         1684           82
-  bytes               0   3553724248       262600        13372
-  way_inds            0            0            0            0
-  way_miss            0           58            3            2
-  way_cols            0            0            0            0
-  drops               0           57            0            0
-  marks               0           29            0            0
-  ack_drop            0            0            0            0
-  sp_flows            0            0            1            0
   bk_flows            0            1            0            0
   un_flows            0            0            0            0
   max_len             0        68130         1872          334
