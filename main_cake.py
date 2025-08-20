@@ -380,35 +380,16 @@ def plot_cake_analysis_tcp(data, final_stats, ping_times, out_img):
     sum_retr = data.get('sum_retr', [])[:min_length] if min_length > 0 else []
     stream_cwnd = [data.get(f'stream{i}_cwnd', [])[:min_length] for i in [6, 8, 10, 12]] if min_length > 0 else [[], [], [], []]
 
-    # Plot 1: Bitrate
+    # Plot 1: Bitrate (PFIFO-style)
     ax = axs[0]
-    if time_data and any(len(sb) > 0 for sb in stream_bitrates) and len(sum_bitrate) > 0:
-        plotted_labels = set()
-        for i, stream_bitrate in enumerate(stream_bitrates):
-            if len(stream_bitrate) > 0 and labels[i] not in plotted_labels:
-                ax.plot(time_data, stream_bitrate, label=labels[i])
-                plotted_labels.add(labels[i])
-        if 'Tổng' not in plotted_labels:
-            ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
-            plotted_labels.add('Tổng')
-        # Ensure only 4 streams + 1 total are present
-        allowed_labels = set(labels + ['Tổng'])
-        seen = set()
-        for line in list(ax.get_lines()):
-            lbl = line.get_label()
-            if lbl not in allowed_labels or lbl in seen:
-                line.remove()
-            else:
-                seen.add(lbl)
-        ax.set_title('Bitrate TCP theo thời gian')
-        ax.set_xlabel('Thời gian (giây)')
-        ax.set_ylabel('Bitrate (Mbits/sec)')
-        ax.legend()
-        ax.grid(True)
-    else:
-        ax.set_title('Không có dữ liệu Bitrate TCP để hiển thị')
-        ax.set_xlabel('Thời gian (giây)')
-        ax.set_ylabel('Bitrate (Mbits/sec)')
+    for i, s_bitrate in enumerate(stream_bitrates):
+        ax.plot(time_data, s_bitrate, label=labels[i])
+    ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
+    ax.set_title('Bitrate TCP theo thời gian')
+    ax.set_xlabel('Thời gian (giây)')
+    ax.set_ylabel('Bitrate (Mbits/sec)')
+    ax.grid(True)
+    ax.legend()
 
     # Plot 2: Retransmissions
     ax = axs[1]
@@ -580,35 +561,16 @@ def plot_cake_analysis_udp(data, final_stats, ping_times, out_img):
     sum_lost_pkt = data.get('sum_lost_datagrams', [])[:min_length] if min_length > 0 else []
     sum_total_pkt = data.get('sum_total_datagrams', [])[:min_length] if min_length > 0 else []
 
-    # Plot 1: Bitrate
+    # Plot 1: Bitrate (PFIFO-style)
     ax = axs[0]
-    if time_data and any(len(sb) > 0 for sb in stream_bitrates) and len(sum_bitrate) > 0:
-        plotted_labels = set()
-        for i, stream_bitrate in enumerate(stream_bitrates):
-            if len(stream_bitrate) > 0 and labels[i] not in plotted_labels:
-                ax.plot(time_data, stream_bitrate, label=labels[i])
-                plotted_labels.add(labels[i])
-        if 'Tổng' not in plotted_labels:
-            ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
-            plotted_labels.add('Tổng')
-        # Ensure only 4 streams + 1 total are present
-        allowed_labels = set(labels + ['Tổng'])
-        seen = set()
-        for line in list(ax.get_lines()):
-            lbl = line.get_label()
-            if lbl not in allowed_labels or lbl in seen:
-                line.remove()
-            else:
-                seen.add(lbl)
-        ax.set_title('Bitrate UDP theo thời gian')
-        ax.set_xlabel('Thời gian (giây)')
-        ax.set_ylabel('Bitrate (Mbits/sec)')
-        ax.legend()
-        ax.grid(True)
-    else:
-        ax.set_title('Không có dữ liệu Bitrate UDP để hiển thị')
-        ax.set_xlabel('Thời gian (giây)')
-        ax.set_ylabel('Bitrate (Mbits/sec)')
+    for i, s_bitrate in enumerate(stream_bitrates):
+        ax.plot(time_data, s_bitrate, label=labels[i])
+    ax.plot(time_data, sum_bitrate, 'k--', label='Tổng', linewidth=2)
+    ax.set_title('Bitrate UDP theo thời gian')
+    ax.set_xlabel('Thời gian (giây)')
+    ax.set_ylabel('Bitrate (Mbits/sec)')
+    ax.legend()
+    ax.grid(True)
 
     # Plot 2: Jitter
     ax = axs[1]
